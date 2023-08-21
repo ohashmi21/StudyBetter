@@ -1,0 +1,1 @@
+//need to create components that have the configs for both the countdown and timer. Make it reactive and import the inputted time to the timer and countdown. 
