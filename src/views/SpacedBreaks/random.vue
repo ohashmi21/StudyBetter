@@ -1,8 +1,6 @@
 <template>
     <div v-if="gapstate">
-      <countdown :timer="currentTimer" 
-      @gap="gap"
-      />
+      <countdown :timer="currentTimer" />
       <div @click="timer" class="gapChanger">Timer</div>
     </div>
     <div v-else>
@@ -19,14 +17,12 @@
     data() {
       return {
         gapstate: false,
-        currentTimer: 0,
-        storedTime:0,
+        currentTimer: 0, // Initial value
       };
     },
     methods: {
       gap() {
         console.log(this.currentTimer);
-        console.log(this.gapstate)
         this.gapstate = true;
       },
       timer() {

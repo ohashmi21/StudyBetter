@@ -6,6 +6,7 @@
           :state="timerState" 
           @start="start"
           @stop="stop"
+          @reset="reset"
         />
       </h1>
     </div>
@@ -23,7 +24,7 @@
       return {
         timerState: "stopped",
         ticker: undefined,
-        time: 1200,
+        time: 5,
       }
     },
     computed: {
@@ -50,11 +51,22 @@
       tick() {
         this.ticker = setInterval(() => {
           this.time--;
+          this.playalarm();
           if (this.time === 0){
             this.stop();
             this.time = 600;
           }
         }, 1000);
+      },
+      reset(){
+        this.stop();
+        this.time=1200;
+      },
+      playalarm(){
+        var audio = new Audio(require("/Users/omairhashmi/StudyBetter/studybetter/src/views/SpacedBreaks/keylimba_soft.mp3"))
+        if (this.time==0){
+          audio.play()
+        }
       },
     }
   }
