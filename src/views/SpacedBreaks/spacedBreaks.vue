@@ -14,7 +14,7 @@
         </div>
         <div id="info">
           <p>
-            What are spaced breaks?<br>
+            <h2>What are spaced breaks?</h2>
             The "spaced breaks" technique is a studying technique that has been proven to improve cognitive performance. Studies have shown that taking small gaps when studying, there is a rapid replay of neurons at up to 20 times the normal speed! This replay helps consolidate information and strengthen neural connections, leading to better learning outcomes. When you incorporate spaced breaks into your study or work routine, you allow your brain to recharge and refresh. These breaks can be as simple as pausing for a couple of minutes to let your mind wander, engaging in deep breathing exercises, or taking a short walk. By incorporating spaced breaks, you optimize your cognitive function and make your learning sessions more productive. You'll experience improved focus, enhanced information retention, and increased overall efficiency.
           </p>
         </div>
@@ -43,8 +43,8 @@
     }
     
     #container {
-      margin-right: 20%;
-      margin-left: 20%;
+      margin-right: 10%;
+      margin-left: 10%;
     }
     
     #interval {
@@ -54,7 +54,7 @@
     #info {
       margin-top: 30px;
       color: white;
-      font-size: 2vh;
+      font-size: 2.5vh;
     }
     
     .tooltip {
@@ -77,7 +77,7 @@
       /* Position the tooltip text - see examples below! */
       position: absolute;
       z-index: 1;
-      font-size: 1em;
+      font-size: 2.5vh;
       width: 100%;
     }
     

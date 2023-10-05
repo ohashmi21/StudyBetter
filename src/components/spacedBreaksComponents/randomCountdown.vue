@@ -63,7 +63,7 @@
         this.time=1200;
       },
       playalarm(){
-        var audio = new Audio(require("/Users/omairhashmi/StudyBetter/studybetter/src/views/SpacedBreaks/keylimba_soft.mp3"))
+        var audio = new Audio(require("@/assets/keylimba_soft.mp3"))
         if (this.time==0){
           audio.play()
         }

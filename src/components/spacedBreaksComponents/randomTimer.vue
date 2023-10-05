@@ -79,7 +79,7 @@
         return MHSTime;
       },
       playalarm(){
-        var audio = new Audio(require("/Users/omairhashmi/StudyBetter/studybetter/src/views/SpacedBreaks/keylimba_soft.mp3"))
+        var audio = new Audio(require("@/assets/keylimba_soft.mp3"))
         audio.play()
       },
       gapChecker() {
