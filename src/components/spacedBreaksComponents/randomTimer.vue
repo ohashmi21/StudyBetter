@@ -8,33 +8,37 @@
           @stop="stop"
           @reset="reset"
         />
+        <div @click="toggleModal" style="cursor:pointer;">Settings</div>
+        <MyModal v-if="isModalVisible" @exit="exit" /> 
       </h1>
     </div>
   </template>
   
   <script>
+  import MyModal from '@/components/spacedBreaksComponents/spacedBreakEditer.vue';
   import Timer from '@/components/timer.vue';
-
   function randomNumber(min, max) {
     return Math.round((Math.random() * (max - min)) / 60) * 60 + min;
   }  
   export default {
-    name: 'randomTimer',
-    components: {
-      Timer,
-    },
-    data() {
-      return {
-        timerState: "stopped",
-        currentTimer: null,
-        formattedTime: "00:00:00",
-        ticker: undefined,
-        gapTimer: 0,
-        gap: null,
-      }
-    },
+  name: 'randomTimer',
+  components: {
+    Timer,
+    MyModal, // Register the MyModal component
+  },
+  data() {
+    return {
+      timerState: "stopped",
+      currentTimer: null,
+      formattedTime: "00:00:00",
+      ticker: undefined,
+      gapTimer: 0,
+      gap: null,
+      isModalVisible: false, // Initialize the modal visibility
+    };
+  },
     mounted() {
-      this.gap = randomNumber(900, 1800);
+      this.gap = randomNumber((localStorage.getItem('min'))*60,(localStorage.getItem('max')*60));
       if (localStorage.currentTimer){
         this.currentTimer=localStorage.currentTimer;
         this.formattedTime=localStorage.formattedTime;
@@ -70,7 +74,7 @@
           this.gapTimer++;
           this.formattedTime = this.formatTime(this.currentTimer);
           this.gapChecker();
-        }, 1);
+        }, 1000);
       },
       formatTime(seconds) {
         let measuredTime = new Date(null);
@@ -89,6 +93,14 @@
           this.gapTimer = 0;
           this.gap = randomNumber(600, 1800);
         }
+      },
+      toggleModal() {
+      this.isModalVisible = !this.isModalVisible; // Toggle modal visibility
+      console.log(this.isModalVisible)
+      this.reset();
+      },
+      exit(){
+        this.isModalVisible=!this.isModalVisible;
       },
     }
   }

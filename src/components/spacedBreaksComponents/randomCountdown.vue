@@ -8,23 +8,28 @@
           @stop="stop"
           @reset="reset"
         />
+        <div @click="toggleModal" style="cursor:pointer;">Settings</div>
+        <MyModal v-if="isModalVisible" @exit="exit" /> 
       </h1>
     </div>
   </template>
   
   <script>
   import Countdown from '@/components/countdown.vue';
+  import MyModal from '@/components/spacedBreaksComponents/spacedBreakEditer.vue';
   
   export default {
     name: 'CountdownTimer',
     components: {
       Countdown,
+      MyModal
     },
     data() {
       return {
         timerState: "stopped",
         ticker: undefined,
-        time: 5,
+        time: (localStorage.getItem('length')*60),
+        isModalVisible: false,
       }
     },
     computed: {
@@ -54,19 +59,28 @@
           this.playalarm();
           if (this.time === 0){
             this.stop();
-            this.time = 600;
+            this.time=(localStorage.getItem('length')*60);
           }
         }, 1000);
       },
       reset(){
         this.stop();
-        this.time=1200;
+        this.time=(localStorage.getItem('length')*60);
       },
       playalarm(){
         var audio = new Audio(require("@/assets/keylimba_soft.mp3"))
         if (this.time==0){
           audio.play()
         }
+      },
+      toggleModal() {
+      this.isModalVisible = !this.isModalVisible; // Toggle modal visibility
+      console.log(this.isModalVisible)
+      this.stop();
+      },
+      exit(){
+        this.isModalVisible=!this.isModalVisible;
+        this.reset();
       },
     }
   }
