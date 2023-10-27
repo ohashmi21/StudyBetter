@@ -43,6 +43,7 @@
         this.currentTimer=localStorage.currentTimer;
         this.formattedTime=localStorage.formattedTime;
       }
+      
     },
     methods: {
       stop() {
@@ -74,7 +75,8 @@
           this.gapTimer++;
           this.formattedTime = this.formatTime(this.currentTimer);
           this.gapChecker();
-        }, 1000);
+          console.log("Gap:" + this.gap + "Max: " + localStorage.getItem("max ") + "Min: " + localStorage.getItem("m sin"));
+        }, 1);
       },
       formatTime(seconds) {
         let measuredTime = new Date(null);
@@ -91,7 +93,7 @@
           this.playalarm();
           this.stop();
           this.gapTimer = 0;
-          this.gap = randomNumber(600, 1800);
+          this.gap = randomNumber((localStorage.getItem('min'))*60,(localStorage.getItem('max')*60));;
         }
       },
       toggleModal() {

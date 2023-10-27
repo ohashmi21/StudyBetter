@@ -31,14 +31,14 @@
     },
     mounted() {
       // Load values from localStorage when the component is mounted
-      this.max = localStorage.getItem('max') || null;
-      this.min = localStorage.getItem('min') || null;
-      this.length = localStorage.getItem('length') || null;
+      this.max = localStorage.getItem('max') || 3000;
+      this.min = localStorage.getItem('min') || 1500;
+      this.length = localStorage.getItem('length') || 300;
     },
     methods: {
     saveChanges() {
         // Validate the input values
-        if (this.min < this.max) {
+        if (this.min <= this.max) {
         // Save values to localStorage
         localStorage.setItem('max', this.max);
         localStorage.setItem('min', this.min);
@@ -46,7 +46,7 @@
         console.log("Max: " + this.max + " Min: " + this.min);
         this.$emit('exit');
         } else {
-        alert("Minimum must be less than the maximum!");
+        alert("Minimum must be less than or equal to Maximum!");
         }
     }
     }
