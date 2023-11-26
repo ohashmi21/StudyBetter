@@ -24,7 +24,17 @@ const routes = [
     path: '/spacedBreaks/random',
     name: 'random',
     component: () => import('../views/SpacedBreaks/random.vue')
-  }
+  },
+  {
+    path: '/pomodoro',
+    name: 'pomodoro',
+    component: () => import('../views/Pomodoro/pomodoroHome.vue')
+  },
+  {
+    path: '/pomodoro/timer',
+    name: 'pomodoroTimer',
+    component: () => import('../views/Pomodoro/pomodoroTimer.vue')
+  },
 ]
 
 const router = createRouter({

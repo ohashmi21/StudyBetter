@@ -1,9 +1,11 @@
 <template>
-    <div>
+    <div class="centered-container">
+        <div>
     {{ countdown }}
     <div @click="start = !start; $emit('start')" id="start" v-if="!start">Start</div>
     <div @click="start = !start; $emit('stop')" id="stop" v-else>Stop</div>
     <div @click="_reset" id="reset">Reset</div>
+</div>
     </div>
 </template>
 
@@ -28,6 +30,11 @@ export default {
 </script>
 
 <style>
+.centered-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
 #start{
     cursor: pointer;
 }

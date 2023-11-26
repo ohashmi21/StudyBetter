@@ -2,7 +2,8 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/spacedBreaks">Spaced Breaks</router-link>
+    <router-link to="/spacedBreaks">Spaced Breaks</router-link> |
+    <router-link to="/pomodoro">Pomodoro</router-link>
   </nav>
   <router-view/>
 </template>

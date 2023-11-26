@@ -5,7 +5,7 @@
         <div id="options">
           <div class="tooltip">
             <span class="tooltiptext">Strategically spaced time periods between review sessions, optimizing the timing of information recall for better long-term retention.</span>
-            <a id="interval">Interval</a>
+            <router-link to="/spacedBreaks/Interval" id="Interval">Interval (in progress) </router-link>
           </div>
           <div class="tooltip">
             <span class="tooltiptext">Random pauses during intense focus sessions allow the brain to idle briefly, enhancing learning by facilitating rapid neural replay and consolidation of information.</span>
